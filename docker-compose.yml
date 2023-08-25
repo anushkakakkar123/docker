@@ -1,0 +1,189 @@
+services:
+
+ 
+
+ 
+
+ 
+
+  leave:
+
+ 
+
+ 
+
+ 
+
+    build: ./leave
+
+ 
+
+ 
+
+ 
+
+    container_name: angular
+
+ 
+
+ 
+
+ 
+
+    ports:
+
+ 
+
+ 
+
+ 
+
+      - "4200:4200"
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+  postgres:
+
+ 
+
+ 
+
+ 
+
+    image: postgres:latest
+
+ 
+
+ 
+
+ 
+
+    container_name: some-postgres
+
+ 
+
+ 
+
+ 
+
+    environment:
+
+ 
+
+ 
+
+ 
+
+      POSTGRES_PASSWORD: mysecretpassword
+
+ 
+
+ 
+
+ 
+
+    volumes:
+
+ 
+
+ 
+
+ 
+
+      - postgres_data:/var/lib/postgresql/data
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  go-docker-demo:
+
+ 
+
+ 
+
+ 
+
+    image: go-docker-demo
+
+ 
+
+ 
+
+ 
+
+    container_name: gor
+
+ 
+
+ 
+
+ 
+
+    ports:
+
+ 
+
+ 
+
+ 
+
+      - "8080:8080"
+
+ 
+
+ 
+
+ 
+
+    depends_on:
+
+ 
+
+ 
+
+ 
+
+      - postgres
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+volumes:
+
+ 
+
+ 
+
+ 
+
+  postgres_data:
